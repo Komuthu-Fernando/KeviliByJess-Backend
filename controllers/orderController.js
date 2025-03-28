@@ -7,7 +7,7 @@ export const placeOrder = async (req, res) => {
   session.startTransaction();
 
   try {
-    const { firstName, email, address, phone, deliveryDate } = req.body.customer;
+    const { firstName, email, address, phone, deliveryDate, deliveryType } = req.body.customer;
     const { cart, totalPrice } = req.body;
 
     // Rename variables for consistency
@@ -26,6 +26,7 @@ export const placeOrder = async (req, res) => {
         address: customerAddress,
         phone: customerPhone,
         deliveryDate: deliveryDate,
+        deliveryType: deliveryType,
       },
       cart,
       totalPrice,
@@ -42,6 +43,7 @@ export const placeOrder = async (req, res) => {
       customerPhone,
       customerAddress,
       deliveryDate,
+      deliveryType,
       cart,
       totalPrice,
     });

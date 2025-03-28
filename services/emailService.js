@@ -11,12 +11,10 @@ export const sendOrderEmails = async (orderDetails) => {
     customerPhone,
     customerAddress,
     deliveryDate,
+    deliveryType,
     cart,
     totalPrice,
   } = orderDetails;
-
-  // Format cart items into a readable string
-  const formattedCart = cart.map((item) => `${item.quantity} x ${item.name} - $${item.price}`).join("\n");
 
   // Template parameters for Customer Email
   const customerTemplateParams = {
@@ -24,9 +22,14 @@ export const sendOrderEmails = async (orderDetails) => {
     orderId,
     customerName,
     deliveryDate,
-    cart: formattedCart,
+    deliveryType,
+    cart: cart.map((item) => ({
+      quantity: item.quantity,
+      name: item.name,
+      price: item.price,
+    })),
     totalPrice,
-    logoUrl: "https://yourdomain.com/path-to-your-logo.png",
+    logoUrl: "https://kevili.com/logo-black.png",
   };
 
   // Template parameters for Client Email
@@ -38,9 +41,14 @@ export const sendOrderEmails = async (orderDetails) => {
     customerPhone,
     customerAddress,
     deliveryDate,
-    cart: formattedCart,
+    deliveryType,
+    cart: cart.map((item) => ({
+      quantity: item.quantity,
+      name: item.name,
+      price: item.price,
+    })),
     totalPrice,
-    logoUrl: "https://yourdomain.com/path-to-your-logo.png",
+    logoUrl: "https://kevili.com/logo-black.png",
   };
 
   try {

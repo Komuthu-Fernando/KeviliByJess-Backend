@@ -6,7 +6,11 @@ const orderSchema = new mongoose.Schema({
     email: String,
     address: String,
     phone: String,
-    deliveryDate: Date,
+    deliveryDate: {
+      type: Date,
+      set: (v) => v.toISOString().split('T')[0], 
+    },
+    deliveryType: String
   },
   cart: [
     {
