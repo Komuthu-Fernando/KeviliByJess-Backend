@@ -29,7 +29,7 @@ export const sendOrderEmails = async (orderDetails) => {
       price: item.price,
     })),
     totalPrice,
-    logoUrl: "https://kevili.com/logo-black.png",
+    logoUrl: "https://kevili.com/logo-background.png",
   };
 
   // Template parameters for Client Email
@@ -48,7 +48,7 @@ export const sendOrderEmails = async (orderDetails) => {
       price: item.price,
     })),
     totalPrice,
-    logoUrl: "https://kevili.com/logo-black.png",
+    logoUrl: "https://kevili.com/logo-background.png",
   };
 
   try {
